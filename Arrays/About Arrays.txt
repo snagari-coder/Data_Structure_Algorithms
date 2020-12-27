@@ -1,0 +1,14 @@
+Arrays
+Pros: 
+1. When we know the index, it is quick to access from arrays
+2. When we have to push/pop to/from the end of the array, it is quick.
+3. Having something that is ordered and close to each other in memory, makes it faster to work with. 
+Cons:
+1. When we have to insert an element at certain index, it is slow. 
+2. When we have to delete an element from certain index, it is slow. 
+3. If the array is fixed sized ( static array ) then we have to declare the size of the array at the begining of the program.
+
+Lookup - O(1)
+Push/append - O(1)
+insert - O(n)
+delete - O(n)
