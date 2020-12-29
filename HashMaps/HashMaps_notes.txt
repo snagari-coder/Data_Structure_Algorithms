@@ -3,3 +3,13 @@ Insert --> O(1)
 delete --> O(1)
 lookup --> O(1)
 search --> O(1)
+
+In python, recently the hash maps are ordered, just like arrays ( indices are ordered )
+
+Pros:
+Fast lookups
+Fast Inserts
+Flexible keys
+
+Cons:
+Slow key iteration, when we have to search through the keys we have to lookup the entire memory. 
