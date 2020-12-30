@@ -1,0 +1,6 @@
+Linked_list:
+prepend --> O(1)
+append --> O(1)
+insert --> O(n)
+lookup --> O(n)
+delete --> O(n)
