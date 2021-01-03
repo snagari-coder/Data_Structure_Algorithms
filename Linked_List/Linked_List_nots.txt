@@ -4,3 +4,13 @@ append --> O(1)
 insert --> O(n)
 lookup --> O(n)
 delete --> O(n)
+
+pros:
+Quick insertion
+Quick deletion
+Ordered
+Flexible size
+
+cons:
+Slow lookup
+More memory
