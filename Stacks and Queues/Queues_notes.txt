@@ -5,3 +5,4 @@ dequeue = O(1)
 peek = O(1) ==> Just viewing the first element/data of the queue
 
 We don't implement queue with arrays ( it is possible though ) because, after each dequeue, we have to do shift the elements of the arrays by one, which is not efficient. 
+It is easier and more efficient to build queues with linked list, because you add element at the tail, and remove element from the head of linked list, which is O(1).
