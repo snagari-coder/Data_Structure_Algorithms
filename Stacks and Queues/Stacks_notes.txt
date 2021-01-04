@@ -3,4 +3,4 @@ lookup - O(n)
 pop - O(1)
 push - O(1)
 peek - O(1)
-peek --> Just looking at the top most data of the stack
+peek --> Just viewing at the top-most data of the stack
