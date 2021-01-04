@@ -1,0 +1,7 @@
+Queues operations cost:
+lookup = O(n) ==> We usually don't do lookup in queues or stacks
+enqueue = O(1)
+dequeue = O(1)
+peek = O(1) ==> Just viewing the first element/data of the queue
+
+We don't implement queue with arrays ( it is possible though ) because, after each dequeue, we have to do shift the elements of the arrays by one, which is not efficient. 
