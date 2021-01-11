@@ -12,3 +12,11 @@ you have to add element at the end of an array and remove the
 element from the end of the array.
 Where as when you build stacks with linked list, you add the element to the end of the linked list.
 when you have to remove, every time you have to traverse the linked list from start to the end of linked list.
+
+pros:
+Fast operations
+Fast peek
+Ordered
+
+Cons:
+Slow lookup
