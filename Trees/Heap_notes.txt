@@ -1,0 +1,21 @@
+Binary Tree -> Each node can have two or less children
+
+Full Binary Tree -> Each node has exactly two children, except the last level of nodes. 
+
+Complete Binary Tree -> When you write the elements of a tree from top, left -> right in an array, there are no gaps between the first and the last element of the array. 
+or
+a complete binary tree is a full binary tree upto level h-1, and in the last level the elements are filled from left to right.
+
+Height of the complete binary tree is log n
+
+Heap is a complete binary tree.
+
+Generally arrays start from index 0, but for simplicity sake, the index of the heap represented by an array will start from 1. 
+
+Heap can have duplicates, duplicates go into decendents. 
+
+If a node is at index i
+left child --> 2*i
+right child --> 2*i + 1
+parent --> floor value of i/2
+
