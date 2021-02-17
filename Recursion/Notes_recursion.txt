@@ -1,0 +1,15 @@
+Anything that can be implemented recursively can be implemented iteratively.
+Recursion can keep your code DRY ( Do not Repeat Yourself ), readable
+Main drawback of using recursion, is it creates an extra memory footprint, it uses stack space, can lead to stack overflow.
+Use recursion when you are working with data structures that you do not know how deep they are, example: tree traversal, searching through graphs.
+Every time you are using a tree or converting something into a tree, consider recursion. 
+
+
+When a problem can be divided into a number of sub-problems, that are smaller instances of the same problem
+and 
+Each instance of the subproblem is identical in nature
+and
+The solutions of each subproblem can be combined to solve the problem at hand
+====> use recursion
+
+Divide and conquer using recursion.
