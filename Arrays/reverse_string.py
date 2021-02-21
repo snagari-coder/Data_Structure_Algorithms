@@ -32,6 +32,18 @@ def smarter_way(input_string):
 # reverse_string('Hi, How are you?')
 # print(smarter_way('Hi, How are you?'))
 
+######################################################################################
+
+def recursive_reverse(string):
+    #print(string)
+    if len(string) == 0:
+        return string
+    else:
+        return recursive_reverse(string[1:]) + string[0]
+
+
+print(recursive_reverse("Drive and motivation"))
+
 
 ##################################################################################
 def simpler_way(input_string):
