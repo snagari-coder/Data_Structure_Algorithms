@@ -1,0 +1,7 @@
+When to use which sorting algorithm?
+Insertion sort --> When the number of inputs ( say array elements ) is small. Or when the array is almost sorted.
+Bubble sort --> Never really used. Only for educational purposes.
+Selection sort --> Never really used. Only for educational purposes. 
+Merge sort --> Very efficient and quick (because of divide and conquer)when space complexity is not a problem. Space complexity - O(n)
+Quick sort --> Almost all the sorting functions in coding languages use quick sort. Very popular. Only drawback is when you pick the pivot 
+to the either the smallest/largest number of the array (worst case time complexity is O(n2)). In that case, you are not really dividing the array into half. 
