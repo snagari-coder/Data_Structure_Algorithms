@@ -1,0 +1,8 @@
+When you have depth first search ( DFS ), you have these three traversals you can do:
+
+  InOrder traversal --> Can be used to get the items in an order , increasing order. Left, parent, right.
+  PreOrder traversal --> Can be used to recreate a binary search tree. parent, left, right
+  PostOrder traversal --> Left child, right child, parent
+  
+Most of the time DFS is done using recursion, as it quite simple to implement.
+Memory consumption = O(height of the tree )
