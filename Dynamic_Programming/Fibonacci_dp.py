@@ -24,5 +24,17 @@ def fibonacci_dp(n):
         return ans_list[n]
 
 
-print(fibonacci(10),calculations)
-print(fibonacci_dp(10),calculations)
+def fibonacci_dp_norecursion(n):
+    answer_list = []
+    answer_list.insert(0, 0)
+    answer_list.insert(1, 1)
+    for i in range(2, n + 1):
+        global calculations
+        calculations = calculations + 1
+        answer_list.insert(i, answer_list[i - 1] + answer_list[i - 2])
+    return answer_list[n]
+
+
+print(fibonacci(10), calculations)
+print(fibonacci_dp(10), calculations)
+print(fibonacci_dp_norecursion(10), calculations)
