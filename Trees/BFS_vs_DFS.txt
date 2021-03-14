@@ -1,12 +1,19 @@
 The big O of traversal for both BFS or DFS is O(n), as one has to travel through each node. 
 
 BFS:
-Very useful for finding the shortest path from the root node to destination node, because we always start with the root node and the nodes closest to it. 
-But the one downside is it requires more memory than DFT
-If you know the location of destination, or know node is in the upper level, use BFS
+1.Very useful for finding the shortest path from the root node to destination node, because we always start with the root node and the nodes closest to it. 
+  Ex: What are the related items in amazon
+      Who are closest friends on facebook
+      who are closest connections on linkedin
+2.But the one downside is it requires more memory than DFT, as it needs to remember parent and children nodes.
+3.If you know the location of destination, or know node is in the upper level, use BFS
 
 
 DFS:
-It can get slow, if the tree/graph is really deep.
-If you know that the target node is in the lower level, use DFS.
-Use DFS if you want to determine that a path exists between two nodes.
+1.It can get slow, if the tree/graph is really deep.
+2.If you know that the target node is in the lower level, use DFS.
+3.Use DFS if you want to determine that a path exists between two nodes.
+  It is like solving a maze, we go till the end of the graph/tree if we hit a roadblock, we trace back and follow another path.
+  Hence we use recursion.
+4.Can be used to see if a certain node exists.
+
