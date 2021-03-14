@@ -1,0 +1,9 @@
+Bellman-Ford and Dijkstra Algorithms are used for finding a shortest path in a weighted graphs. 
+Bellman is more effective because it can accomodate negative weighted graphs in finding the shortest path.
+Bellman algo's worst case time complexity is O(n*2) and is slow. 
+Dijkstra algo is faster, used for finding shortest path within non-negative weighter graphs. 
+
+===================================================================================================
+JFYI - 
+Linear search - O(n)
+Binary search - log(n)
