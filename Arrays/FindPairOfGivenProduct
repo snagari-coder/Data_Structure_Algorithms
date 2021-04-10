@@ -1,0 +1,43 @@
+# Find two integers from a given array of given length whose product is a given number
+def three_product(arr, n, product):
+    i = 0
+    while i < n:
+        if (product % arr[i]) == 0:
+            new_target = int(product / arr[i])
+            tuple_2 = two_product(arr[1:], n - 1, new_target)
+            if tuple_2(0) == -1:
+                i += 1
+                break
+            else:
+                tuple_3 = (arr[i], tuple_2[0], tuple_2[1])
+                return tuple_3
+        else:
+            i += 1
+            break
+    print("There are no three integers whose product is ", product)
+    tuple_3 = (-1, -1, -1)
+    return tuple_3
+
+def two_product(arr, n, product):
+    hashmap = {}
+    for i in range(n):
+        if product == 0 and arr[i] == 0:
+            tuple_int = (arr[i], arr[i])
+            tuple_indices = (i, i)
+            # return tuple_int, tuple_indices
+            return tuple_int
+        if product % arr[i] == 0 and int(product / arr[i]) in hashmap:
+            tuple_int = (arr[i], int(product / arr[i]))
+            tuple_indices = (i, hashmap[int(product / arr[i])])
+            # return tuple_int, tuple_indices
+            return tuple_int
+        else:
+            hashmap[arr[i]] = i
+
+    # If you come this far, no such pair
+    print("There is no such pair whose product is: ", product)
+    tuple_int = (0, 0)
+    return tuple_int
+
+
+print(two_product([2, 4, 1, 6, 5, 3, 0, -1], 8, 20))
