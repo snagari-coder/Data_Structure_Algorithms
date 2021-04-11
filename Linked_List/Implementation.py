@@ -92,6 +92,19 @@ class LinkedList:
                 self.tail = current_node
             return
 
+     def printNthElement(self,N):
+        if self.length == 0:
+            print("The linked list is empty")
+        elif N > self.length:
+            print("The "+str(N)+"th element is not there in the linked list")
+        else:
+            count = 1
+            current_node = self.Head
+            while count < N:
+                current_node = current_node.next
+                count += 1
+            print("The "+str(N)+"th element is: ", current_node.data)
+    
     def print_linked_list(self):
 
         if self.head is None:
@@ -120,3 +133,4 @@ my_linkedList.insert(0, 0)
 my_linkedList.delete_by_value(99)
 my_linkedList.delete_by_index(2)
 my_linkedList.print_linked_list()
+myLinkedList.printNthElement(6)
