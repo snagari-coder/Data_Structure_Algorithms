@@ -7,7 +7,7 @@ def is_rotation(list1, list2):
         return False
 
     if list2[0] in list1:
-        list1_p = list1.index(list2[0])
+        list1_p = list1.index(list2[0]) # pointer of list1
     else:
         return False
 
