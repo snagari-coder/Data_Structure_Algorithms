@@ -27,3 +27,34 @@ array = [[00,1,2,3,4],
 twod_diagonal_print(array, 4, 5)
 
 #Time complexity = O(m*n)
+
+###############################################################################################################################################################
+# Print 2D array diagonally from upper-left to lower-right
+def twod_diagonal_print(arr, m, n):
+    r = m #row
+    c = n #column
+    for k in range(c-1,-1,-1):
+        i = 0
+        j = k
+        print(" ")
+        while j <= c-1 and i < r : # Each diagonal ends with the 0th row
+            print(arr[i][j], end=" ")
+            i = i + 1
+            j = j + 1
+
+    for k in range(1,r):
+        i = k
+        j = 0
+        print(" ")
+        while i <= r-1 and j < c: #Each diagonal ends with the last ( c - 1 )th column
+            print(arr[i][j], end=" ")
+            i = i + 1
+            j = j + 1
+
+array = [[00,1,2,3,4],
+         [10,11,12,13,14],
+         [20,21,22,23,24],
+         [30,31,32,33,34]]
+twod_diagonal_print(array, 4, 5)
+
+#Time complexity = O(m*n)
