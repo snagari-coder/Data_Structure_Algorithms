@@ -63,3 +63,11 @@ stack.getMin()
 stack.pop()
 stack.peek()
 
+# push x
+# min         x   <---diff = 2x-min--->  2*min
+
+# diff is the topmost element of the stack
+
+# pop
+# min       new_min                  2*min
+# new_min = 2*min - diff
