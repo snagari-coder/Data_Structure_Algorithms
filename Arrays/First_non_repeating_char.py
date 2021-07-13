@@ -37,3 +37,42 @@ def first_non_repeating_char(input):
 first_non_repeating_char("ababab")
 # Time complexity = O(1) Looking up from hashmap
 # Space complexity = O(n)
+
+==========================================================================================================================================================================
+===== SIMPLER VERSION ====================================================================================================================================================
+
+from collections import OrderedDict
+
+
+def first_non_repeating_char(input_string):
+    hashmap = OrderedDict()
+    print(f'Reading the char {input_string[0]} ...')
+    hashmap[input_string[0]] = 1
+    print(f'First non repeating char is: {input_string[0]}')
+
+    for i in range(1, len(input_string)):
+        print(f'Reading the char {input_string[i]} ...')
+        if input_string[i] in hashmap:
+            hashmap[input_string[i]] += 1
+        else:
+            hashmap[input_string[i]] = 1
+
+        first_nrc = value_one(hashmap)
+        print(f'First non repeating char is: {first_nrc}')
+
+
+def value_one(hashmap):
+
+    for key, value in hashmap.items():
+
+        if value != 1:
+            continue
+        elif value == 1:
+            return key
+
+    return -1
+
+first_non_repeating_char('aabcbc')
+
+# Time complexity = O(n) + O(1) going through the string and lookup from hashmap
+# Space complexity = O(m), m < n, number of unique chars
