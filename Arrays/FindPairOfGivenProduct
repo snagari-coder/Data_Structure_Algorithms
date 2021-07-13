@@ -26,7 +26,7 @@ def two_product(arr, n, product):
             tuple_indices = (i, i)
             # return tuple_int, tuple_indices
             return tuple_int
-        if product % arr[i] == 0 and int(product / arr[i]) in hashmap:
+        if arr[i] != 0 and product % arr[i] == 0 and int(product / arr[i]) in hashmap: # To handle zeroDivisionError
             tuple_int = (arr[i], int(product / arr[i]))
             tuple_indices = (i, hashmap[int(product / arr[i])])
             # return tuple_int, tuple_indices
