@@ -2,7 +2,7 @@
 # Anagram is if two strings have same letters, but are rearranged.
 # Ex: C A T and A C T are Anagram.
 def is_anagram(string1,string2):
-    list1 = list(string1)
+    list1 = list(string1) # You don't really have to convert to list. You can do the same thing with string.
     list2 = list(string2)
 
     hashmap = {}
