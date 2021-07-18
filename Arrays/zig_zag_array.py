@@ -16,7 +16,7 @@ def zig_zag_array(arr):
                 arr[i], arr[i+1] = arr[i+1], arr[i]
                 i += 1
                 flag = 1
-        if flag == 1 and i != n-1:
+        if flag == 1 and i != n-1: # No need of i != n-1, it is being checked in while loop
             if arr[i] > arr[i+1]:
                 i += 1
                 flag = 0
