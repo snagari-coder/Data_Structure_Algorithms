@@ -18,7 +18,30 @@ def find_common_animals(list1, list2):
 #Time complexity = O(n)
 #Space complexity = O(n)
 print(find_common_animals(["dog", "cat", "tiget", "elephant"],["horse", "dog", "cow", "cat"]))
+##########################################################################################################################
 
+
+def find_common_string(list1, list2):
+    hashmap = {}
+    result = []
+    for i in range(len(list1)):
+        if list1[i] in hashmap:
+            hashmap[list1[i]] += 1
+        else:
+            hashmap[list1[i]] = 1
+    print(hashmap)
+    for i in range(len(list2)):
+        if list2[i] in hashmap:
+            result.append(list2[i])
+            hashmap.pop(list2[i])
+    print(hashmap)
+    return result
+print(find_common_string(["dog", "cat", "tiget", "elephant"],["horse", "dog", "cow", "cat"]))
+
+
+
+
+###########################################################################################################################
 
 def find_common_animals_with_sets(list1, list2):
     common_animals = set(list1) & set(list2)
