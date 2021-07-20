@@ -18,26 +18,29 @@ def three_product(arr, n, product):
     tuple_3 = (-1, -1, -1)
     return tuple_3
 
-def two_product(arr, n, product):
+def two_product(arr, product):
+    n = len(arr)
     hashmap = {}
     for i in range(n):
         if product == 0 and arr[i] == 0:
-            tuple_int = (arr[i], arr[i])
-            tuple_indices = (i, i)
-            # return tuple_int, tuple_indices
-            return tuple_int
-        if arr[i] != 0 and product % arr[i] == 0 and int(product / arr[i]) in hashmap: # To handle zeroDivisionError
-            tuple_int = (arr[i], int(product / arr[i]))
-            tuple_indices = (i, hashmap[int(product / arr[i])])
-            # return tuple_int, tuple_indices
-            return tuple_int
-        else:
-            hashmap[arr[i]] = i
+            result_v = (0,arr[0])
+            result_i = (i, i-1)
 
-    # If you come this far, no such pair
+        if arr[i] != 0 and product % arr[i] == 0:
+            if product/arr[i] in hashmap:
+                result_v = (arr[i], int(product/arr[i]))
+                result_i = (i, hashmap[product/arr[i]])
+                return result_v
+            else:
+                hashmap[arr[i]] = i
+
+    # if you have come this far, no such pair
     print("There is no such pair whose product is: ", product)
-    tuple_int = (0, 0)
-    return tuple_int
+    result_v = (-1, -1)
+    return result_v
+
+#print(two_product([2, 4, 1, 6, 5, 3, 0, -1],200))
+
 
 
 print(two_product([2, 4, 1, 6, 5, 3, 0, -1], 8, 20))
