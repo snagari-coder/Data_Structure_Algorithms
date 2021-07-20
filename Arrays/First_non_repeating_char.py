@@ -44,33 +44,32 @@ first_non_repeating_char("ababab")
 from collections import OrderedDict
 
 
-def first_non_repeating_char(input_string):
+def first_non_repeating_char(str):
+    n = len(str)
     hashmap = OrderedDict()
-    print(f'Reading the char {input_string[0]} ...')
-    hashmap[input_string[0]] = 1
-    print(f'First non repeating char is: {input_string[0]}')
 
-    for i in range(1, len(input_string)):
-        print(f'Reading the char {input_string[i]} ...')
-        if input_string[i] in hashmap:
-            hashmap[input_string[i]] += 1
+    for i in range(n):
+        print(f'Reading the char {str[i]}')
+        if str[i] in hashmap:
+            hashmap[str[i]] += 1
         else:
-            hashmap[input_string[i]] = 1
+            hashmap[str[i]] = 1
 
-        first_nrc = value_one(hashmap)
-        print(f'First non repeating char is: {first_nrc}')
+        key = value_one(hashmap)
+        print(f'First non repeating char is {key}')
+
+    return
 
 
 def value_one(hashmap):
-
     for key, value in hashmap.items():
-
         if value != 1:
             continue
-        elif value == 1:
+        else:
             return key
 
     return -1
+first_non_repeating_char('aabc')
 
 first_non_repeating_char('aabcbc')
 
