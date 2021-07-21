@@ -40,3 +40,13 @@ arr = [2, 5, 2, 6, 9, 5, 8, 8, 8]
 n = len(arr)
 solution = sortByFreq(arr, n)
 print(*solution) # * removes the brackets and commas
+
+##############################################################################################################
+
+list1 = [1,2,3,4,3,3,3,4,2,4,9]
+counts = collections.Counter(list1)
+print(counts)
+new_list = sorted(list1, key=lambda x: -counts[x])
+new_list1 = sorted(list1, key=lambda x: (counts[x], x), reverse=True) # Same frequency is displayed based on value
+print(new_list)
+print(new_list1)
