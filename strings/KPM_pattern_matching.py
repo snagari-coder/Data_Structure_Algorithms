@@ -1,5 +1,5 @@
 # KMP (Knuth-Morris-Pratt) string matching algorithm
-
+## REVISE ##
 def kmp_compare(string, pattern):
     string_length = len(string)
     pattern_length = len(pattern)
