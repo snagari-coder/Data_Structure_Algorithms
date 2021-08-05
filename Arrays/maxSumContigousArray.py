@@ -16,18 +16,29 @@ def maxSumContiguousSubArray(arr):
 #Space complexity = O(1)
 
 print(maxSumContiguousSubArray([-2, -3, 4, -1, -2, 1, 5, -3]))
-
-# Works when all the numbers in array are negative
-def better_way(arr):
+#================================================================================================================================
+# Works also when all the numbers in array are negative
+def best_way(arr):
     max_current = arr[0]
     max_so_far = arr[0]
+    start,end,count = 0,0,0
     for i in range(1, len(arr)):
         max_current = max(arr[i], max_current + arr[i])
-        max_so_far = max(max_current, max_so_far)
+        
+        if max_current > max_so_far:
+            max_so_far = max_current
+            
+            if count == 0:
+                start = i
+                count += 1
+            else:
+                end = i
+        
+        #max_so_far = max(max_current, max_so_far)
     return max_so_far
 #Time complexity = O(n)
 #Space complexity = O(1)
-
+#================================================================================================================================
 # Also outputs the indices between which max sum is created
 def maxSumContiguousSubArray_withIndices(arr):
     max_current = 0
