@@ -21,7 +21,8 @@ def longestIncreasingSubsequence_better(arr):
         i += 1  # Every time i increases by 1, j goes to the starting of the array.
         j = 0
     print(dp)
-    return max_length
+    # return max_length
+    return max(dp)  # faster as per Leetcode
 
 
 print(longestIncreasingSubsequence_better([10, 9, 2, 5, 3, 7, 101, 18]))
