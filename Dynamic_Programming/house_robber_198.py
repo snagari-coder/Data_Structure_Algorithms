@@ -1,4 +1,5 @@
 '''
+Leetcode 198
 You are a professional robber planning to rob houses along a street.
 Each house has a certain amount of money stashed, the only constraint
 stopping you from robbing each of them is that adjacent houses have
@@ -18,44 +19,6 @@ Output: 12
 Explanation: Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1).
 Total amount you can rob = 2 + 9 + 1 = 12.
 '''
-
-
-def rob(nums):
-    sum0 = 0
-    sum1 = 0
-    if len(nums) == 0:
-        return 0
-    if len(nums) == 1:
-        return nums[0]
-    if len(nums) == 2:
-        return max(nums[0], nums[1])
-
-    if len(nums) % 2 == 0:
-        for i in range(0, len(nums) - 1, 2):
-            sum0 = sum0 + nums[i]
-        for i in range(0, len(nums), 2):
-            sum1 = sum1 + nums[i]
-        if sum0 > sum1:
-            print(sum0)
-        else:
-            print(sum1)
-    else:
-        for i in range(0, len(nums), 2):
-            sum0 = sum0 + nums[i]
-        for i in range(0, len(nums) - 1, 2):
-            sum1 = sum1 + nums[i]
-        if sum0 > sum1:
-            print(sum0)
-        else:
-            print(sum1)
-
-
-##rob([1, 2, 3, 1])
-##rob([2, 7, 9, 3, 1])
-
-
-# Time complexity = O(n)
-# space complexity = O(1)
 
 def rob_dynamic_programming(nums):
     if len(nums) == 0:
@@ -84,8 +47,7 @@ def rob_dynamic_programming_constSpace(nums):
         return 0
     if len(nums) == 1:
         return nums[1]
-    dp = [0] * len(nums)  # This array stores the max values upto the current house.
-
+    
     maxLootForSecondPreviousHouses = nums[0]
     maxLootForImmediatePreviousHouses = max(nums[0], nums[1])
     maxLoot = maxLootForImmediatePreviousHouses
