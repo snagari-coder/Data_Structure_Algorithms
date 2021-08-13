@@ -63,3 +63,39 @@ def rob_dynamic_programming_constSpace(nums):
 # Space complexity = O(1)
 print(rob_dynamic_programming_constSpace([1, 2, 3, 1]))
 print(rob_dynamic_programming_constSpace([2, 7, 9, 3, 1]))
+
+#####################################################################################################################
+
+# Leetcode 213
+'''
+You are a professional robber planning to rob houses along a street. 
+Each house has a certain amount of money stashed. All houses at this place are arranged in a circle. 
+That means the first house is the neighbor of the last one. 
+Meanwhile, adjacent houses have a security system connected, 
+and it will automatically contact the police if two adjacent houses were broken into on the same night.
+'''
+
+def rob(self, nums: List[int]) -> int:
+        n = len(nums)
+        if n == 0:
+            return -1
+        
+        if n == 1:
+            return nums[0]
+        
+        if n == 2:
+            return max(nums[0], nums[1])
+        
+        def solve(new_nums):
+            maxLootSecondPreviousHouse = new_nums[0]
+            maxLootImmediatePreviousHouse = max(new_nums[0], new_nums[1])
+            max_loot = maxLootImmediatePreviousHouse
+            for i in range(2,len(new_nums)):
+                max_loot = max(new_nums[i] + maxLootSecondPreviousHouse, maxLootImmediatePreviousHouse )
+                maxLootSecondPreviousHouse = maxLootImmediatePreviousHouse
+                maxLootImmediatePreviousHouse = max_loot
+            return max_loot
+        
+        actual_max_loot = max(solve(nums[0:n-1]), solve(nums[1:n])) # Given 12345, you can rob from 1-4 or 2-5 because 1,5 are adjacent. 
+        
+        return actual_max_loot
