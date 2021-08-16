@@ -1,3 +1,4 @@
+# Leetcode 104
 # Definition for a binary tree node.
 from typing import Optional
 
@@ -27,7 +28,7 @@ class Solution:
 ###########################################################################################################################################################################
 ############# MINIMUM DEPTH OF A TREE ########################
 
-
+# Leetcode 111
 # Definition for a binary tree node.
  class TreeNode:
      def __init__(self, val=0, left=None, right=None):
