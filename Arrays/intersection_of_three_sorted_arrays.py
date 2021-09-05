@@ -1,5 +1,6 @@
 # Better handles duplicates
 # Leetcode 1213
+# Here using set, you can also use hashing. 
 
 def intersection_of_three_sorted_arrays(a1, a2, a3):
     thisset = set()  # declaration of set
