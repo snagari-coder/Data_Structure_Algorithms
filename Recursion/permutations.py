@@ -24,8 +24,28 @@ print(permutations_wo_repetitions([1, 2, 3]))
 # Time complexity = n*n! ( there are n! leaves and doing copy, which is n work )
 # space complexity = explicit -- n*n! ( n! items/permutations each with n elements )
 #                   = implicit -- O(n) for callstack
-############################################################
+###########################################################################################################################
 
+def permutations_with_repetitions(nums):
+    result = []
+    helper(nums, [], result)
+    return result
+
+
+def helper(nums, slate, result):
+    if len(slate) == len(nums):
+        result.append(slate.copy())
+    else:
+
+        for i in range(len(nums)):
+
+            slate.append(nums[i])
+            helper(nums, slate, result)
+            slate.pop()
+print(len(permutations_with_repetitions([1, 2, 3])))
+
+
+###########################################################################################################################
 # Printing decimal (0-9) string of length n
 # permutations_with_repetitions
 def permutations(n):
