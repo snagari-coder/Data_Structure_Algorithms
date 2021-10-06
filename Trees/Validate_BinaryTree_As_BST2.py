@@ -1,3 +1,43 @@
+# Leetcode 98
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isValidBST(self, root: Optional[TreeNode]) -> bool:
+        
+        INT_MAX = float('infinity')
+        INT_MIN = float('-infinity')
+        
+        def helper(node,minimum, maximum):
+            
+            if minimum is not None and node.val <= minimum:
+                return False
+            
+            if maximum is not None and node.val >= maximum:
+                return False
+            
+            is_left_bst = True
+            is_right_bst = True
+    
+            if node.left:
+                is_left_bst = helper(node.left,minimum,node.val)
+            if is_left_bst and node.right:
+                is_right_bst = helper(node.right,node.val,maximum)
+            
+            return (is_left_bst and is_right_bst)
+        
+        return helper(root,INT_MIN,INT_MAX)
+
+
+#Time complexity : O(n) since we visit each node exactly once.
+#Space complexity : O(n) since we keep up to the entire tree.
+
+
+##############################################################################################################################################################################
 # Use this class to create binary trees.
 class Node:
     def __init__(self, value, left=None, right=None):
