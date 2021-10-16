@@ -1,4 +1,5 @@
 """
+Leetcode 261
 A graph is a valid tree is there are no cycles and all the components are connected.
 To check if there are cycles are not, we check if there is cross edge (BFS)or back egde(DFS) in the graph
 To check if there is a cross egde: check if a node (which is not my parent) has been visited previously or not.
