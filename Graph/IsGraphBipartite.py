@@ -18,6 +18,7 @@ class Solution(object):
         visited = [-1] * n
         parent = [-1] * n
         distance = [-1] * n
+        color = [-1] * n
         
         def bfs(source):
             visited[source] = 1
@@ -36,9 +37,29 @@ class Solution(object):
                             if distance[neighbor] == distance[node]: # odd vertices in cycle
                                 return False 
             return True
-                        
+        
+        def dfs(source):
+            visited[source] = 1
+            if parent[source] == -1:
+                color[source] = 0
+            else: 
+                color[source] = 1 - color[parent[source]]
+                
+            for neighbor in adjList[source]:
+                if visited[source] == -1:
+                    
+                    parent[neighbor] = source
+                    if dfs(neighbor) == False:
+                        return False
+                else:
+                    if color[source] == color[neighbor]:
+                        return False
+            print(color)
+            return True
+        
         for v in range(n):
             if visited[v] == -1:
+                #color[v] = 0
                 if not bfs(v):
                     return False # even if one odd cycle was found, not bipartite
         return True # all connected components are bipartite, hence bipartite
