@@ -40,3 +40,6 @@ def rodCut_dp(L, prices):
 # Time complexity = O(L*L) --> Two for loops
 # Space complexity = O(L) --> For the 1D array of length L+1
 print(rodCut_dp(3, [0, 4, 10, 13]))
+
+# Note if price=[4,10,13], instead of [0,4,10,13], then 
+# line 33 becomes: revenue = table[cut] + prices[i-cut-1]
