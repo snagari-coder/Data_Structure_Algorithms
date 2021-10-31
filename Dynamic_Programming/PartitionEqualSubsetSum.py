@@ -31,3 +31,25 @@ class Solution(object):
             return False
           
         #Time complexity = space = O(n*m), as we are using 2D array
+#####################################################################################
+#Using recursion. 
+#There will be lot of overlapping problems, so for large inputs, you will get "time limit exceeded error"
+        def canPartition(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        if sum(nums) % 2 != 0:
+            return False
+        target_sum = sum(nums)//2
+        n = len(nums)
+        
+        def helper(nums,i,k):
+            if k == 0:
+                return True
+            if i == n and k != 0:
+                return False
+            return helper(nums,i+1,k) or helper(nums,i+1,k-nums[i])
+        
+        
+        return helper(nums,0,target_sum)
