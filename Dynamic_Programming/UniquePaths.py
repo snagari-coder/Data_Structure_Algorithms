@@ -1,5 +1,50 @@
 
 #Leetcode 63
+
+
+#Better solution, using two two rows, space optimized
+class Solution(object):
+    def uniquePathsWithObstacles(self, obstacleGrid):
+        """
+        :type obstacleGrid: List[List[int]]
+        :rtype: int
+        """
+        
+        rows = len(obstacleGrid)
+        cols = len(obstacleGrid[0])
+        
+        table = [[0 for j in range(cols)] for i in range(min(2,rows))]
+        
+        if obstacleGrid[0][0] == 1 or obstacleGrid[rows-1][cols-1] == 1:
+            return 0
+        else:
+            table[0][0] = 1
+        
+        
+        
+        #The 0th row and 0th col are all 1's because there is only 1 way to reach them
+        for c in range(1,cols):
+            if obstacleGrid[0][c] == 1:
+                break
+            else:
+                table[0][c] = 1
+                
+        for row in range(1,rows):
+            if obstacleGrid[row][0] == 0: # no obstacle in the 0th column
+                table[row%2][0] = table[(row-1)%2][0] # copy the top row value into current row
+            else:
+                table[row%2][0] = 0
+                
+            for col in range(1,cols):
+                if obstacleGrid[row][col] == 1:
+                    table[row%2][col] = 0 # because we are using either row 0 or 1
+                else:
+                    table[row%2][col] = table[(row-1)%2][col] + table[row%2][col-1]
+                    
+        return table[(rows-1)%2][cols-1]
+
+
+######################################################################################################################################
 def uniquePaths2_withObstacles(matrix):
     rows = len(matrix)
     columns = len(matrix[0])
