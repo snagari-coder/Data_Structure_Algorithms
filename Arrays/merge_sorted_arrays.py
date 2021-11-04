@@ -3,55 +3,32 @@
 #The result should be array = [1,2,3,4,5,6,7,8]
 
 
-def merge_sorted_arrays(array1, array2):
-    i = 0
-    j = 0
-    k = 0
-    merged_array = []
-    # check inputs
 
-    if len(array1) == 0:
-        merged_array = array2
+   def mergeSortedArray(nums1, nums2):
+        i, j = 0, 0
+        result = []
+        while i < len(nums1) and j < len(nums2):
+            if nums1[i] == nums2[j]:
+                result.append(nums1[i])
+                result.append(nums2[j])
+                i += 1
+                j += 1
+            elif nums1[i] < nums2[j]:
+                result.append(nums1[i])
+                i += 1
+            else:  # nums1[i] > nums2[j]
+                result.append(nums2[j])
+                j += 1
 
-    if len(array2) == 0:
-        merged_array = array1
+        if i != len(nums1) - 1:
+            for xi in range(i,len(nums1)):
+                result.append(nums1[x])
 
-    if type(array1) != list or type(array2) != list:
-        print('Please give two inputs of type list')
+        if j != len(nums2) - 1:
+            for y in range(j,len(nums2)):
+                result.append(nums2[y])
 
-    while i < len(array1) and j < len(array2):
-
-        if array1[i] < array2[j]:
-            merged_array.insert(k, array1[i])
-            i = i + 1
-            k = k + 1
-            continue
-        if array1[i] == array2[j]:
-            merged_array.insert(k, array1[i])
-            k = k + 1
-            i = i + 1
-            merged_array.insert(k, array2[j])
-            k = k + 1
-            j = j + 1
-            continue
-        if array1[i] > array2[j]:
-            merged_array.insert(k, array2[j])
-            j = j + 1
-            k = k + 1
-            continue
-    final_i = i
-    final_j = j
-
-    if i != len(array1):
-        for a in range(final_i, len(array1)):
-            merged_array.insert(k, array1[a])
-            k = k + 1
-    if j != len(array2):
-        for a in range(final_j, len(array2)):
-            merged_array.insert(k, array2[a])
-            k = k + 1
-
-    return merged_array
+        return result
 
 
 # Time complexity = O(n+m)
