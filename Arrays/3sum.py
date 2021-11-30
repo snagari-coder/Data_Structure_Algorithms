@@ -6,6 +6,45 @@ Notice that the solution set must not contain duplicate triplets.
 Input: nums = [-1,0,1,2,-1,-4]
 Output: [[-1,-1,2],[-1,0,1]]
 '''
+
+
+class Solution(object):
+    def threeSum(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        
+        
+        nums.sort()
+        result=[]
+        for i in range(len(nums)):
+            if nums[i] > 0: #if num is > 0, there is no way this can lead to a sum of 0, hence break
+                break
+            if i == 0 or nums[i] != nums[i-1]: # make sure there are no duplicate triplets
+                self.twosum(i,nums,result)
+        return result
+                
+    def twosum(self,i,nums,result):
+        lo = i+1
+        hi = len(nums)-1
+        while lo < hi:
+            sum = nums[i] + nums[lo] + nums[hi]
+            if sum < 0:
+                lo += 1
+            elif sum > 0:
+                hi -= 1
+            else:
+                result.append([nums[i],nums[lo],nums[hi]])
+                lo += 1
+                hi -= 1
+                while lo < hi and nums[lo] == nums[lo-1]:
+                    lo += 1
+
+# Time = O(nlogn + n)
+# space from \mathcal{O}(\log{n})O(logn) to \mathcal{O}(n)O(n), depending on the implementation of the sorting algorithm. 
+# For the purpose of complexity analysis, we ignore the memory required for the output.
+#########################################################################################################
 def three_sum(nums):
     nums = sorted(nums)
     n = len(nums)
