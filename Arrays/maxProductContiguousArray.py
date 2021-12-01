@@ -5,32 +5,37 @@
 # Explanation: [2,3] has the largest product 6.
 
 def max_product_subarray_better(arr):
-    max_product = max(arr)
-    current_min, current_max = 1, 1
-    for n in arr:
-        if n == 0:
-            current_min, current_max = 1, 1
-            continue
-        tmp_max = current_max * n
-        tmp_min = current_min * n
-        current_max = max(tmp_min, tmp_max, n)
-        current_min = min(tmp_min, tmp_max, n)
-        max_product = max(max_product, current_max)
+    if len(nums) == 0:
+        return 0
 
-    return max_product
+    max_so_far = nums[0]
+    min_so_far = nums[0]
+    result = max_so_far
 
+    for i in range(1, len(nums)):
+        curr = nums[i]
+        max_so_far = max(curr, max_so_far * curr, min_so_far * curr)
+        min_so_far = min(curr, max_so_far * curr, min_so_far * curr)
 
+        #max_so_far = temp_max
+
+        result = max(max_so_far, result)
+
+    return result
+
+#Time = O(n), space = O(1)
+################################################################
 def max_product_subarray(arr):
-    max_product, product = 0, 1
-    n = len(arr)
-    i = 0
-    for i in range(n):
-        product = arr[i]
-        for j in range(i + 1, n):
-            product *= arr[j]
-            max_product = max(product, max_product)
-        max_product = max(product, max_product)  # Checking the (n-1)th index by itself
-    return max_product
+    if len(nums) == 0:
+        return 0
+    
+    result = nums[0]
+    for i in range(len(nums)):
+        acc = 1
+        for j in range(i,len(nums)):
+            acc *= nums[j]
+            result = max(result,acc)
+    return result
 
 
 # Time complexity = O(n*2)
