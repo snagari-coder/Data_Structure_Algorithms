@@ -1,7 +1,31 @@
 # Check if two strings are anagram or not.
 # Anagram is if two strings have same letters, but are rearranged.
 # Ex: C A T and A C T are Anagram.
+# Leetcode 242
 
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+        s_hash = {}
+        for c in s:
+            s_hash[c] = 1 + s_hash.get(c,0)
+        print(s_hash)
+        
+        for c in t:
+            if c not in s_hash:
+                return False
+            else:
+                s_hash[c] -= 1
+        print(s_hash)
+        if max(s_hash.values()) > 0:
+            return False
+        else:
+            return True
+
+
+
+#################################################################################################################################################################
 def IsAnagram(s1, s2):
     if len(s1) != len(s2):
         return False
