@@ -28,4 +28,4 @@ class Solution:
                     r += 1
         return result
       
-      #Time = O(n)
+      #Time = O(n^2)
