@@ -1,3 +1,23 @@
+# Leetcode 161
+class Solution:
+    def isOneEditDistance(self, s: str, t: str) -> bool:
+        ns,nt = len(s),len(t)
+        if ns > nt:
+            return self.isOneEditDistance(t,s)
+        if nt - ns > 1:
+            return False
+        for i in range(len(s)):
+            if s[i] != t[i]:
+                if ns == nt :
+                    return s[i+1:] == t[i+1:] #creating a substring
+                else:
+                    return s[i:] == t[i+1:]
+        return ns+1 == nt
+        
+# Time: O(N), in worst case, when ns ~ nt
+# Space : O(N), for creating substring
+
+#######################################################################################################################
 #Write a functon that takes two strings and returns True if they are one away from each other
 #They are one away from each other if a single operation (changing a character, deleting a character
 # adding a character ) will change one of the strings to the other.
