@@ -1,3 +1,4 @@
+# Leetcode 3
 # Given a string, find length of the longest substring and subsequence with
 # all distinct characters.
 # For example, for input "abca",
@@ -5,6 +6,26 @@
 # For example, for input "pwwkew"
 # Substring = wke, subsequence = pwke
 
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        if len(s) == 0:
+            return 0
+        result = ''
+        i,ans = 0,0
+        map = {}
+        for j in range(len(s)):
+            if s[j] in map:
+                i = max(i,map[s[j]]+1) # we 
+            if (j-i+1) > ans:
+                result = s[i:j+1]
+                ans = j-i+1
+            map[s[j]] = j
+        print(result)
+        return ans
+    # Time = space = O(n)
+
+#############################################
 def longestSubstringWithAllDistinceChars(str):
     # Sliding window method
     start, end = 0, 0
