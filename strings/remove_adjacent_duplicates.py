@@ -1,3 +1,18 @@
+# Leetcode 1047
+# Better
+class Solution:
+    def removeDuplicates(self, s: str) -> str:
+        output = [] #Stack will hold all non-duplicate chars
+        for ch in s:
+            if output and ch == output[-1]:
+                output.pop()
+            else:
+                output.append(ch)
+        return "".join(output)
+
+# Time = O(n)
+# Space = O(n-d), where d = sum of length of all duplicate chars, stack space
+######################################################################################################
 # Given a string, remove adjacent duplicate characters from string. The output string should not
 # have any adjacent duplicates. See following examples
 # Input:  azxxzy
