@@ -1,3 +1,4 @@
+#Leetcode 8 ( incomplete )
 def atoi(str1):
     integer = 0
     sign = ''
