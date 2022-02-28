@@ -19,6 +19,18 @@ class Solution(object):
         return result
   # Time = space = O(n)
 
+#Using set:
+def two_sum(input,target):
+    values = set()
+    result = False
+    for value in input:
+        difference = target - value
+        if difference in values:
+            result = True
+        values.add(value)
+    return result
+print(two_sum([5,9,1,3],6))
+
 ##############################################################
 '''
 Leetcode 167. Two Sum II - Input Array Is Sorted
