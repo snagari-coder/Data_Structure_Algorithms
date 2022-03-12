@@ -27,3 +27,20 @@ class Solution:
     
         # Time complexity = O(n) for visiting each node
         # Space complexity = O(n) for queue
+##################################################### NORMAL BFS #############################################
+
+if root is None:
+            return []
+        q = collections.deque([root])
+        result = []
+        while len(q) != 0:
+            nodes_per_level = len(q)
+            node = q.pop()
+            result.append(node.val)
+            for _ in range(nodes_per_level):
+                if node.right is not None:
+                    q.append(node.right)
+                if node.left is not None:
+                    q.append(node.left)
+            
+        return result
