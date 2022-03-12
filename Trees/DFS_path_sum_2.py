@@ -33,3 +33,32 @@ class Solution:
         
         # Time complexity = O(nlogn) = Space complexity
         # Because of the slate.copy, slate can have a max of height of tree ( log n ), and there are n leaf nodes, so n log n.
+        
+        ######################################## Slight Alternate ##################################################################
+        
+        # Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
+        if root is None:
+            return []
+        result = []
+        self.dfs(root,targetSum,[],result)
+        return result
+    
+    def dfs(self,node,target,slate,result):
+        target -= node.val
+        slate.append(node.val)
+        #basecase
+        if node.left is None and node.right is None:
+            if target == 0:
+                result.append(slate[:])
+        if node.left:
+            self.dfs(node.left,target,slate,result)
+        if node.right:
+            self.dfs(node.right,target,slate,result)
+        slate.pop()
