@@ -1,3 +1,44 @@
+# Leetcode 200
+# BFS and DFS together, see comments
+
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        if grid is None:
+            return 0
+        rows = len(grid)
+        cols = len(grid[0])
+        visited = set()
+        numOfIslands = 0
+        
+        
+        def dfs(r,c):
+            visited.add((r,c))
+            q = collections.deque()
+            q.append((r,c))
+            while q:
+                row,col = q.popleft() # if popleft is changed to pop, it becomes dfs in 
+                directions = [(1,0),(-1,0),(0,1),(0,-1)]
+                for dr,dc in directions:
+                    r, c = row + dr,col + dc
+                    if r in range(rows) and c in range(cols) and (r,c) not in visited and grid[r][c] == '1':
+                        q.append((r,c))
+                        visited.add((r,c))
+                
+            
+        
+        
+        for r in range(rows):
+            for c in range(cols):
+                if grid[r][c] == '1' and (r,c) not in visited:
+                    dfs(r,c)
+                    
+                    numOfIslands += 1
+        return numOfIslands
+
+# Time = O(M x N)
+# Space = O(min(M,N))
+
+###################################################################################################################################################
 # Given a boolean 2D matrix, find the number of islands.
 # A group of connected 1s forms an island. For example, the below matrix contains 5 islands
 
